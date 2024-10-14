@@ -5,8 +5,11 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+		<link rel="stylesheet" href="../node_modules/framework7/framework7-bundle.min.css" />
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+		<div id="app"></div>
+		<script type="module" src="/src/app.js"></script>
 	</body>
 </html>

@@ -29,5 +29,9 @@
 		"vite": "^5.0.3"
 	},
 	"type": "module",
-	"packageManager": "yarn@4.5.0"
+	"packageManager": "yarn@4.5.0",
+	"dependencies": {
+		"framework7": "^8.3.4",
+		"framework7-svelte": "^8.3.4"
+	}
 }
