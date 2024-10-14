@@ -11,6 +11,11 @@
 		List,
 		ListInput
 	} from 'framework7-svelte';
+	import showdown from 'showdown';
+	const converter = new showdown.Converter();
+
+	let htmlContent = '';
+
 	const f7Params = {
 		popup: {
 			closeOnEscape: true
@@ -59,7 +64,8 @@
       <p>Qui, animi. Dolores dicta, nobis aut expedita enim eum assumenda modi, blanditiis voluptatibus excepturi non pariatur. Facilis fugit facere sequi molestias nemo in, suscipit inventore consequuntur, repellat perferendis, voluptas odit.</p>
       <p>Tempora voluptates, doloribus architecto eligendi numquam facilis perspiciatis autem quam voluptas maxime ratione harum laudantium cum deleniti. In, alias deserunt voluptatibus eligendi libero nobis est unde et perspiciatis cumque voluptatum.</p>
       <p>Quam error doloribus qui laboriosam eligendi. Aspernatur quam pariatur perspiciatis reprehenderit atque dicta culpa, aut rem? Assumenda, quibusdam? Reprehenderit necessitatibus facere nemo iure maiores porro voluptates accusamus quibusdam. Nesciunt, assumenda?</p>`;
-
+	$: markdownContent = converter.makeMarkdown(customValue);
+	$: console.log('markdownContent', markdownContent);
 	let listEditorValue = '';
 	// to get instance in some method
 </script>
@@ -67,6 +73,9 @@
 <App {...f7Params}>
 	<Page>
 		<Navbar title="Text Editor" />
+
+		<h2>HTML To Markdown 內容:</h2>
+		<pre style="padding:16px; width: 100%; overflow-x:scroll">{markdownContent}</pre>
 
 		<Block>
 			<p>
